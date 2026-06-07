@@ -35,7 +35,7 @@ class Car extends Vehicle {
     // Method Overloading 
     @Override
     public double calculateRent(int days) {
-        return rentperDay * days;
+        return rentPerDay * days;
     }
 }
 
@@ -79,3 +79,18 @@ public class VehicleRentalManagement {
         int days = sc.nextInt();
 
         Vehicle v;
+
+        // Polymorphism
+        if (type.equalsIgnoreCase("car")) {
+            v = new Car(number, brand, rent);
+        } else {
+            v = new Bike(number, brand, rent);
+        }
+
+        System.out.println("\n===== VEHICLE DETAILS =====");
+        v.displayDetails();
+
+        double total = v.calculateRent(days);
+        System.out.println("Total Rent: " + total);  
+    }
+}
